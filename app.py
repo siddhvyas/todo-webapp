@@ -13,7 +13,7 @@ def index():
     if request.method == 'POST':
         newTask = request.form.get('newtask')
         #Adding New Task to user_tasks
-        with sqlite3.connect(r"todo_database\user_tasks.db") as connection:
+        with sqlite3.connect(r"database\user_tasks.db") as connection:
             try:
                 cursor = connection.cursor()
                 cursor.execute("INSERT INTO %s (tasks) VALUES (%s)"%(current_user, newTask))
@@ -35,7 +35,7 @@ def login():
         password = request.form.get('pass')
         #Checking Database
         authentication = False
-        with sqlite3.connect(r"users.db") as connection:
+        with sqlite3.connect(r"database\users.db") as connection:
             try:
                 cursor = connection.cursor()
                 cursor.execute("select * from user_list") 
@@ -66,7 +66,7 @@ def signup():
         username = resuest.form.get('username')
         password = request.form.get('pass')
         #Update Database
-        with sqlite3.connect(r"todo_databse\users.db") as connection:
+        with sqlite3.connect(r"databse\users.db") as connection:
             try:
                 cursor = connection.cursor()
                 cursor.execute("INSERT INTO user_list (username, password) VALUES (?,?)",(username, password))
