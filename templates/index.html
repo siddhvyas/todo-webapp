@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <style>*{margin: 0; padding: 0;}</style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/body.css') }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="main-page">
+        <header class="container-fluid">
+            <div class="container-fluid row">
+                <div class="col-md-3">
+                    <div class="row head-item">
+                        <div class="col-2"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            width="24" height="24"
+                            viewBox="0 0 172 172"
+                            style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M28.66667,21.5c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM78.83333,21.5c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM129,21.5c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM28.66667,71.66667c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM78.83333,71.66667c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM129,71.66667c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM28.66667,121.83333c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM78.83333,121.83333c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM129,121.83333c-3.956,0 -7.16667,3.21067 -7.16667,7.16667v14.33333c0,3.956 3.21067,7.16667 7.16667,7.16667h14.33333c3.956,0 7.16667,-3.21067 7.16667,-7.16667v-14.33333c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667z"></path></g></g></svg></div>
+                        <div class="col-10">To-Do</div>
+                    </div>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-4 row">
+                    <div class="col-md-11"></div>
+                    <div class="col-md-1"><a href="/login"><img src="{{ url_for('static', filename = 'icons/account_circle-white-18dp.svg') }}" alt="Account" height="30vh"></a></div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container-fluid row" style="border: 1px solid black;">
+                <div id="control-panel" class="col-md-3">
+                    <div id="main-menu">
+                        <div class="row">
+                            <div class="col-2"><img src="https://img.icons8.com/android/24/000000/sun.png"/></div>
+                            <div class="col-10">Today</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2"><img src="https://img.icons8.com/android/24/000000/star.png"/></div>
+                            <div class="col-10">Important</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2"><img src="https://img.icons8.com/material-rounded/24/000000/calendar.png"/></div>
+                            <div class="col-10">Plan</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2"><img src="https://img.icons8.com/material-outlined/24/000000/home--v2.png"/></div>
+                            <div class="col-10">Tasks</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tasks" class="col-md-9">
+                    <div class="page-content">
+                        <div class="task-page-head"><span>Tasks</span></div>
+                        {% for task in tasks %}
+                        <div class="task-item">{{task}}</div><hr>
+                        {% endfor %}
+
+                        <form action="http://127.0.0.1:5000/" method="POST">
+                            <div class="task-item row">
+                                <div class="col-11">
+                                    <input id="new-task" type="text" name="newtask" placeholder="Add new task">
+                                </div>
+                                <div class="col-1">
+                                    <button type="submit" style="color: blue; background-color: white; border: none;">Add</button>
+                                </div>
+                            </div><hr>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename = 'js/tasks.js') }}"></script>
+
+</body>
+</html>

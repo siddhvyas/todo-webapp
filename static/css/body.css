@@ -1,0 +1,29 @@
+body{background-color: whitesmoke;}
+
+#control-panel{
+    display: flex;
+    flex-direction: column;
+}
+
+#main-menu .row{margin: 1vh;}
+#main-menu :hover{background-color: #dddcdc;}
+
+#main-menu{margin: 4vh 0vw 4vh 0vw;}
+
+.page-content{margin: 1vh;}
+
+/* Task page start */
+#tasks{background-color: white;}
+
+.task-page-head span{color: blue;}
+
+.task-item{
+    margin: 1vh 0vw 1vh 0vw;
+    padding: 1vh;
+}
+
+#new-task{width: 100%; border: none;}
+
+.page-content hr{margin: 0;}
+
+/* Task page end */
